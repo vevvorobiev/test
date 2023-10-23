@@ -27,7 +27,10 @@ $_['column_status']          = 'Status';
 $_['column_action']          = 'Action';
 
 // Entry
+$_['entry_type']             = 'Type';
+$_['entry_discount']            = 'Discount';
 $_['entry_name']             = 'Product Name';
+$_['entry_percent'] = 'Percent';
 $_['entry_description']      = 'Description';
 $_['entry_meta_title']       = 'Meta Tag Title';
 $_['entry_meta_keyword']     = 'Meta Tag Keywords';
@@ -108,3 +111,4 @@ $_['error_meta_title']       = 'Meta Title must be greater than 1 and less than 
 $_['error_model']            = 'Product Model must be greater than 1 and less than 64 characters!';
 $_['error_keyword']          = 'SEO URL already in use!';
 $_['error_unique']           = 'SEO URL must be unique!';
+

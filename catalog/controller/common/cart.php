@@ -53,7 +53,7 @@ class ControllerCommonCart extends Controller {
 		$this->load->model('tool/upload');
 
 		$data['products'] = array();
-
+//print_r('<b>'.json_encode($this->cart->getProducts()).'</b>');
 		foreach ($this->cart->getProducts() as $product) {
 			if ($product['image']) {
 				$image = $this->model_tool_image->resize($product['image'], $this->config->get('theme_' . $this->config->get('config_theme') . '_image_cart_width'), $this->config->get('theme_' . $this->config->get('config_theme') . '_image_cart_height'));
@@ -107,7 +107,7 @@ class ControllerCommonCart extends Controller {
 				'href'      => $this->url->link('product/product', 'product_id=' . $product['product_id'])
 			);
 		}
-
+print_r($data['products']);
 		// Gift Voucher
 		$data['vouchers'] = array();
 

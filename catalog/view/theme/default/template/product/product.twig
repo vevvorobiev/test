@@ -154,7 +154,7 @@
               <hr>
             </li>
             {% for discount in discounts %}
-            <li>{{ discount.quantity }}{{ text_discount }}{{ discount.price }}</li>
+            <li>От {{ discount.quantity }}{% if discount.type == 'P' %} Скидка{% else %} Цена{% endif %} {{ discount.value }}{% if discount.type == 'P' %} %{% else %} $ {% endif %}</li>
             {% endfor %}
             {% endif %}
           </ul>
@@ -548,3 +548,4 @@ $(document).ready(function() {
 });
 //--></script> 
 {{ footer }} 
+

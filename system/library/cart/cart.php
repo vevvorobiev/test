@@ -174,10 +174,12 @@ class Cart {
 					}
 				}
 
-				$product_discount_query = $this->db->query("SELECT price FROM " . DB_PREFIX . "product_discount WHERE product_id = '" . (int)$cart['product_id'] . "' AND customer_group_id = '" . (int)$this->config->get('config_customer_group_id') . "' AND quantity <= '" . (int)$discount_quantity . "' AND ((date_start = '0000-00-00' OR date_start < NOW()) AND (date_end = '0000-00-00' OR date_end > NOW())) ORDER BY quantity DESC, priority ASC, price ASC LIMIT 1");
+				$product_discount_query = $this->db->query("SELECT * FROM " . DB_PREFIX . "product_discount WHERE product_id = '" . (int)$cart['product_id'] . "' AND customer_group_id = '" . (int)$this->config->get('config_customer_group_id') . "' AND quantity <= '" . (int)$discount_quantity . "' AND ((date_start = '0000-00-00' OR date_start < NOW()) AND (date_end = '0000-00-00' OR date_end > NOW())) ORDER BY quantity DESC, priority ASC, price ASC LIMIT 1");
+
 
 				if ($product_discount_query->num_rows) {
-					$price = $product_discount_query->row['price'];
+					if($product_discount_query->row['type'] == 'F') { $price = $product_discount_query->row['price']; } else { $discount= $price * $product_discount_query->row['price'] / 100; $price = $price - $discount; }
+
 				}
 
 				// Product Specials
@@ -405,3 +407,4 @@ class Cart {
 		return false;
 	}
 }
+

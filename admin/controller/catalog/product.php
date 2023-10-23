@@ -1010,10 +1010,14 @@ class ControllerCatalogProduct extends Controller {
 				'quantity'          => $product_discount['quantity'],
 				'priority'          => $product_discount['priority'],
 				'price'             => $product_discount['price'],
+                                'type' =>$product_discount['type'],
+
 				'date_start'        => ($product_discount['date_start'] != '0000-00-00') ? $product_discount['date_start'] : '',
 				'date_end'          => ($product_discount['date_end'] != '0000-00-00') ? $product_discount['date_end'] : ''
 			);
 		}
+
+print_r($data['product_discounts']);
 
 		if (isset($this->request->post['product_special'])) {
 			$product_specials = $this->request->post['product_special'];
